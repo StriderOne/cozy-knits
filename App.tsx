@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -10,7 +10,7 @@ import { About } from './pages/About';
 
 // Helper for scroll to top on route change
 const ScrollToTop = () => {
-    const { pathname } = React.useMemo(() => window.location, []);
+    const { pathname } = useLocation();
     
     React.useEffect(() => {
         window.scrollTo(0, 0);

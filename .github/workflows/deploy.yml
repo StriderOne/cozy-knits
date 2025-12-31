@@ -19,10 +19,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # Кэширование убрано, так как package-lock.json отсутствует при первом пуше
+          # cache: 'npm'
 
       - name: Install dependencies
-        # Используем npm install, так как package-lock.json может не существовать при первом пуше
+        # npm install создаст lock-файл на лету во время сборки
         run: npm install
 
       - name: Build
