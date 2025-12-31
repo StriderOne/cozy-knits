@@ -6,94 +6,51 @@ export const HERO_SUBTITLE = "Бескомпромиссное качество 
 export const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Мишка Тедди "Оливер"',
+    name: 'Набор "Пухляши"',
     category: 'ANIMALS',
-    price: 3500,
-    shortDescription: 'Классический вязаный мишка в винтажном стиле.',
-    fullDescription: 'Оливер создан для самых теплых объятий. Выполнен из мягкой полушерсти, наполнитель — гипоаллергенный холлофайбер. Конечности подвижны (пуговичное крепление).',
-    materials: 'Полушерсть, холлофайбер, дерево (пуговицы)',
-    dimensions: '25 см',
+    price: 4500,
+    shortDescription: 'Трио круглых друзей: котик, хомяк и корги.',
+    fullDescription: 'Уникальный набор из трех игрушек-антистресс круглой формы. В комплект входят: серый котик, коричневый хомяк и рыжий корги. Идеальный размер для детской ручки. Очень мягкие, отлично держат форму.',
+    materials: 'Плюшевая пряжа Himalaya Dolphin Baby, холлофайбер, глазки на безопасном креплении.',
+    dimensions: 'Диаметр каждой игрушки ~10-12 см',
     images: [
-      'https://picsum.photos/seed/bear1/800/800',
-      'https://picsum.photos/seed/bear2/800/800',
-      'https://picsum.photos/seed/bear3/800/800',
+      './group.png', // Фото, где трое
     ],
     marketplaceLinks: {
-      wildberries: 'https://wb.ru',
-      ozon: 'https://ozon.ru',
+      ozon: 'https://ozon.ru', // Замените на реальную ссылку
     },
     inStock: true,
   },
   {
     id: '2',
-    name: 'Зайка "Мия" в платье',
+    name: 'Корги "Бенни"',
     category: 'ANIMALS',
-    price: 2800,
-    shortDescription: 'Нежная зайка с длинными ушами и съемной одеждой.',
-    fullDescription: 'Мия станет лучшей подружкой для вашей принцессы. Платье снимается, можно заказывать дополнительные наряды. Глазки на безопасном креплении.',
-    materials: '100% мерсеризованный хлопок',
-    dimensions: '30 см (с ушами)',
+    price: 3500,
+    shortDescription: 'Верный плюшевый друг с рыжим ошейником.',
+    fullDescription: 'Очаровательный корги из плюшевой пряжи. Очень мягкий и приятный на ощупь. Реалистичная окраска и милая мордочка. Ошейник не снимается.',
+    materials: 'Плюшевая пряжа, холлофайбер, безопасные глазки и носик.',
+    dimensions: 'Высота 15 см, Длина 20 см',
     images: [
-      'https://picsum.photos/seed/bunny1/800/800',
-      'https://picsum.photos/seed/bunny2/800/800',
+      './corgi.png', // Фото корги отдельно
     ],
     marketplaceLinks: {
-      ozon: 'https://ozon.ru',
-      yandex: 'https://market.yandex.ru',
+      wildberries: 'https://wb.ru', // Замените на реальную ссылку
     },
     inStock: true,
   },
   {
     id: '3',
-    name: 'Интерьерная кукла "Алиса"',
-    category: 'DOLLS',
-    price: 4200,
-    shortDescription: 'Утонченная кукла для украшения детской или гостиной.',
-    fullDescription: 'Алиса стоит самостоятельно. Волосы из мягкой пряжи можно заплетать. Одежда выполнена с высокой детализацией.',
-    materials: 'Хлопок, акрил, фатин',
-    dimensions: '32 см',
-    images: [
-      'https://picsum.photos/seed/doll1/800/800',
-      'https://picsum.photos/seed/doll2/800/800',
-    ],
-    marketplaceLinks: {
-      wildberries: 'https://wb.ru',
-    },
-    inStock: false,
-  },
-  {
-    id: '4',
-    name: 'Набор корзинок "Уют"',
-    category: 'DECOR',
-    price: 1500,
-    shortDescription: 'Набор из двух вязаных корзинок для мелочей.',
-    fullDescription: 'Идеально держат форму благодаря плотной вязке из трикотажной пряжи. Подходят для ванной, спальни или детской.',
-    materials: 'Трикотажная пряжа (100% хлопок)',
-    dimensions: '15х10 см, 20х15 см',
-    images: [
-      'https://picsum.photos/seed/decor1/800/800',
-    ],
-    marketplaceLinks: {
-      ozon: 'https://ozon.ru',
-    },
-    inStock: true,
-  },
-  {
-    id: '5',
-    name: 'Львенок "Симба"',
+    name: 'Утконос "Перри"',
     category: 'ANIMALS',
-    price: 3200,
-    shortDescription: 'Солнечный львенок с густой гривой.',
-    fullDescription: 'Грива надежно закреплена, не лезет. Очень приятный на ощупь, фактурная вязка.',
-    materials: 'Полухлопок (Jeans)',
-    dimensions: '22 см',
+    price: 2800,
+    shortDescription: 'Агент П в своей знаменитой шляпе.',
+    fullDescription: 'Любимый герой мультфильма. Связан из мягкой плюшевой пряжи. Шляпа надежно закреплена (или снимается, если нужно - уточните при заказе).',
+    materials: 'Плюшевая пряжа, фетр (для шляпы), холлофайбер.',
+    dimensions: 'Высота 18 см',
     images: [
-      'https://picsum.photos/seed/lion1/800/800',
+      './platypus.png', // Фото утконоса
     ],
-    marketplaceLinks: {
-      wildberries: 'https://wb.ru',
-      yandex: 'https://market.yandex.ru',
-    },
+    marketplaceLinks: {},
     inStock: true,
   }
 ];

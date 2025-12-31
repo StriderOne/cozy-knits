@@ -38,9 +38,9 @@ export const Home: React.FC = () => {
           <div className="md:w-1/2">
             <div className="relative">
               <img 
-                src="https://picsum.photos/seed/hero/800/900" 
-                alt="Knitted toy hero" 
-                className="rounded-2xl shadow-2xl relative z-10 w-full max-w-md mx-auto object-cover h-[500px]"
+                src="./group.jpg" 
+                alt="Вязаные игрушки ручной работы" 
+                className="rounded-2xl shadow-2xl relative z-10 w-full max-w-md mx-auto object-cover h-auto"
               />
               <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-accent rounded-2xl z-0 hidden md:block"></div>
             </div>
