@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../components/Button';
 import { OrderForm } from '../types';
-import { Send, Camera } from 'lucide-react';
+import { Send, Camera, ExternalLink } from 'lucide-react';
 
 export const CustomOrder: React.FC = () => {
   const [formData, setFormData] = useState<OrderForm>({
@@ -16,9 +16,26 @@ export const CustomOrder: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here one would typically send data to a backend or use an EmailJS service.
-    // For the demo, we simulate success.
-    console.log('Form Submitted:', formData);
+    
+    // Construct the message
+    const message = `👋 Здравствуйте! Меня зовут ${formData.name}.
+🧶 Хочу заказать: ${formData.productType}.
+📝 Детали заказа: ${formData.details}.
+📱 Мой контакт для связи: ${formData.contactValue} (${formData.contactType === 'TELEGRAM' ? 'Telegram' : 'WhatsApp'}).`;
+
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Redirect logic
+    // Note: Replace the numbers/usernames below with real shop contacts
+    if (formData.contactType === 'WHATSAPP') {
+      window.open(`https://wa.me/79000000000?text=${encodedMessage}`, '_blank');
+    } else {
+      // Assuming a telegram bot or user
+      // If using a username: https://t.me/username?start=... or just deep link text is harder for direct user chat without bot.
+      // Standard "Share" link for telegram:
+      window.open(`https://t.me/cozyknits_admin?text=${encodedMessage}`, '_blank'); // Using web link which prompts to open app
+    }
+
     setIsSubmitted(true);
   };
 
@@ -48,11 +65,11 @@ export const CustomOrder: React.FC = () => {
                 </li>
                 <li className="flex gap-3">
                    <div className="w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center font-bold">2</div>
-                   <span>Мы свяжемся для обсуждения деталей и сроков</span>
+                   <span>Вас перенаправит в мессенджер с готовым сообщением</span>
                 </li>
                 <li className="flex gap-3">
                    <div className="w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center font-bold">3</div>
-                   <span>Предоплата 50%, начало работы</span>
+                   <span>Обсуждаем детали и предоплату</span>
                 </li>
               </ul>
             </div>
@@ -69,9 +86,9 @@ export const CustomOrder: React.FC = () => {
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600">
                       <Send size={40} />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900">Заявка отправлена!</h3>
-                  <p className="text-primary-600">Спасибо, {formData.name}. Мы свяжемся с вами в ближайшее время через {formData.contactType === 'TELEGRAM' ? 'Telegram' : 'WhatsApp'}.</p>
-                  <Button variant="outline" onClick={() => setIsSubmitted(false)}>Отправить новую</Button>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900">Переходим в мессенджер...</h3>
+                  <p className="text-primary-600">Если окно чата не открылось автоматически, нажмите кнопку ниже.</p>
+                  <Button variant="outline" onClick={() => setIsSubmitted(false)}>Заполнить заново</Button>
                </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -148,25 +165,25 @@ export const CustomOrder: React.FC = () => {
                   ></textarea>
                 </div>
 
-                {/* File input placeholder logic - native inputs for files are tricky to style perfectly without extra logic, keeping it simple */}
+                {/* File input placeholder - Note: Files cannot be passed via simple URL redirect scheme easily without backend upload first. */}
                 <div>
                   <label className="block text-sm font-medium text-primary-700 mb-1">Референс (фото пример)</label>
                   <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-primary-200 border-dashed rounded-lg hover:bg-primary-50 transition-colors cursor-pointer relative">
                     <div className="space-y-1 text-center">
                       <Camera className="mx-auto h-12 w-12 text-primary-400" />
                       <div className="flex text-sm text-primary-600 justify-center">
-                        <label htmlFor="file-upload" className="relative cursor-pointer rounded-md font-medium text-accent hover:text-accent-dark focus-within:outline-none">
-                          <span>Загрузить файл</span>
-                          <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-                        </label>
+                        <span className="relative rounded-md font-medium text-primary-500">
+                          (Отправьте фото прямо в чат)
+                        </span>
                       </div>
-                      <p className="text-xs text-primary-500">PNG, JPG до 5MB</p>
+                      <p className="text-xs text-primary-400">Функция загрузки доступна в чате</p>
                     </div>
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                  Отправить заявку
+                <Button type="submit" className="w-full py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                  <span>Перейти в {formData.contactType === 'TELEGRAM' ? 'Telegram' : 'WhatsApp'}</span>
+                  <ExternalLink size={20} />
                 </Button>
               </form>
             )}
