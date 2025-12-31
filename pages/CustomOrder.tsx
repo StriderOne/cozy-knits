@@ -17,7 +17,7 @@ export const CustomOrder: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Construct the message
+    // Формируем сообщение
     const message = `👋 Здравствуйте! Меня зовут ${formData.name}.
 🧶 Хочу заказать: ${formData.productType}.
 📝 Детали заказа: ${formData.details}.
@@ -25,15 +25,13 @@ export const CustomOrder: React.FC = () => {
 
     const encodedMessage = encodeURIComponent(message);
     
-    // Redirect logic
-    // Note: Replace the numbers/usernames below with real shop contacts
+    // Логика редиректа
+    // ЗАМЕНИТЕ НОМЕР/ЮЗЕРНЕЙМ на реальные
     if (formData.contactType === 'WHATSAPP') {
       window.open(`https://wa.me/79000000000?text=${encodedMessage}`, '_blank');
     } else {
-      // Assuming a telegram bot or user
-      // If using a username: https://t.me/username?start=... or just deep link text is harder for direct user chat without bot.
-      // Standard "Share" link for telegram:
-      window.open(`https://t.me/cozyknits_admin?text=${encodedMessage}`, '_blank'); // Using web link which prompts to open app
+      // Для Telegram
+      window.open(`https://t.me/cozyknits_admin?text=${encodedMessage}`, '_blank');
     }
 
     setIsSubmitted(true);
@@ -165,7 +163,6 @@ export const CustomOrder: React.FC = () => {
                   ></textarea>
                 </div>
 
-                {/* File input placeholder - Note: Files cannot be passed via simple URL redirect scheme easily without backend upload first. */}
                 <div>
                   <label className="block text-sm font-medium text-primary-700 mb-1">Референс (фото пример)</label>
                   <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-primary-200 border-dashed rounded-lg hover:bg-primary-50 transition-colors cursor-pointer relative">
