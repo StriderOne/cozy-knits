@@ -38,7 +38,7 @@ export const Home: React.FC = () => {
           <div className="md:w-1/2">
             <div className="relative">
               <img 
-                src="./group.jpg" 
+                src="group.jpg" 
                 alt="Вязаные игрушки ручной работы" 
                 className="rounded-2xl shadow-2xl relative z-10 w-full max-w-md mx-auto object-cover h-auto"
               />
