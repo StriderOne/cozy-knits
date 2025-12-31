@@ -8,6 +8,10 @@ import { HERO_TITLE, HERO_SUBTITLE, PRODUCTS } from '../constants';
 export const Home: React.FC = () => {
   // Get featured products (e.g., first 3)
   const featuredProducts = PRODUCTS.slice(0, 3);
+  
+  // Use the image from the first product for the Hero section to ensure consistency
+  // If the catalog works, this MUST work as it uses the exact same data source.
+  const heroImageSrc = featuredProducts[0]?.images[0] || 'group.jpg';
 
   return (
     <div className="fade-in">
@@ -38,9 +42,9 @@ export const Home: React.FC = () => {
           <div className="md:w-1/2">
             <div className="relative">
               <img 
-                src="group.jpg" 
+                src={heroImageSrc} 
                 alt="Вязаные игрушки ручной работы" 
-                className="rounded-2xl shadow-2xl relative z-10 w-full max-w-md mx-auto object-cover h-auto"
+                className="rounded-2xl shadow-2xl relative z-10 w-full max-w-md mx-auto object-cover h-auto bg-primary-100 block"
               />
               <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-accent rounded-2xl z-0 hidden md:block"></div>
             </div>
