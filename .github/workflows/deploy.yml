@@ -22,9 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        # Using 'npm install' instead of 'npm ci' because a package-lock.json 
-        # might not exist yet in a fresh repo generation.
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
